@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-for 指令</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 
+            1. v-for指令作用:根據資料生成列表結構
+            2. 數組常和v-for結合使用
+            3. 語法是 v-for="(item, index) in 數據"
+            4. item, index 可以結合其他指令使用
+            5. 數組長度的更新會同步至頁面上,是響應式的
+        -->
+        <ul>
+            <li v-for="item in colorArr" :title="item">顏色:{{ item }}</li>
+        </ul>
+        <ul>
+            <li v-for="(item, index) in colorArr">索引:{{ index }} => {{ item }}</li>
+        </ul>
+        <h3 v-for="item in objectArr">名稱:{{ item.name }}</h3>
+        <input type="button" value="新增資料" @click="add">
+        <input type="button" value="移除資料" @click="remove">
+    </div>
+</body>
+<script>
+    var app = new Vue({
+        el: "#app ",
+        data: {
+            colorArr: ["紅色", "澄色", "黃色", "綠色"],
+            objectArr: [{
+                name: "小明"
+            }, {
+                name: "小王"
+            }, {
+                name: "小黑"
+            }, ]
+        },
+        methods: {
+            add: function() {
+                this.objectArr.push({
+                    "name": "新同學"
+                });
+            },
+            remove: function() {
+                this.objectArr.shift();
+            }
+        }
+    });
+</script>
+
+</html>

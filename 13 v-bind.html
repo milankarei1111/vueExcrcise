@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-bind</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+</head>
+<style>
+    .active {
+        border: 10px solid red;
+    }
+</style>
+
+<body>
+    <div id="app">
+        <!-- 
+            1. v-bind指令作用:為元素綁定指令屬性
+            2. 完整寫法:v-bind:屬性名="表達式或變數名" ex: v-bind:src="imgSrc"
+            3. 簡寫 :屬性名="表達式或變數名" ex: :src="imgSrc"
+            4. 需要動態增刪class, 建議使用對象的方式
+        -->
+        <h3>完整寫法 v-bind:src</h3>
+        <img v-bind:src="imgSrc" width="200px">
+        <h3>簡寫 :src</h3>
+        <img :src="imgSrc" width="200px" :title="imgTitle">
+        <br>
+        <h3>三元表達式</h3>
+        <img :src="imgSrc" width="200px" :class="isActive? 'active':'' ">
+        <h3>class表達建議用對象:active是否生效 取決於isActive值 </h3>
+        <img :src="imgSrc" width="200px" :class="{active:isActive}">
+
+    </div>
+</body>
+<script>
+    var app = new Vue({
+        el: "#app ",
+        data: {
+            imgSrc: "/image/Koala.jpg",
+            imgTitle: "無尾熊",
+            isActive: true
+        },
+        methods: {
+            reduceNumber: function() {
+
+            },
+
+        }
+    });
+</script>
+
+</html>
