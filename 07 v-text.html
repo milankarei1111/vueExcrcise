@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-text指令 設置標籤內容</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 
+            1. v-text 設置標籤內容
+            2. 預設替代全部內容
+            3. 使用差值表達式{{ }} 可以替換指定內容
+            4. 內部可支援表達式
+        -->
+        <!-- 預設替代全部內容 -->
+        <h2 v-text="message + '!' ">學習</h2>
+        <h2 v-text="info + '!' ">學習</h2>
+
+        <!-- 差值表達式 {{ }} 可替換指定內容 -->
+        <h2>{{ message + "!" }} 學習</h2>
+
+    </div>
+</body>
+<script>
+    var app = new Vue({
+        el: "#app ",
+        data: {
+            message: "Hello vue ",
+            info: "vue 2 test "
+        }
+    });
+</script>
+
+</html>

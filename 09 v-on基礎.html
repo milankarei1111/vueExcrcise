@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-on基礎指令</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 
+            1. v-on 指令作用為綁定事件
+            2. 事件名不需要寫on
+            3. 指令可以簡寫為@
+            4. 綁定的方法定義在 methods 屬性中
+            5. 方法內部通過this關鍵字可以取得定義在 data 中數據
+            6. 語法: @事件名="方法名"
+        -->
+        <input type="button" value="v-on指令" v-on:click="doIt">
+        <input type="button" value="v-on簡寫" @click="doIt">
+        <input type="button" value="v-on雙擊" @dblclick="doIt">
+        <input type="button" value="v-on滑鼠移入" @mouseenter="doIt">
+        <h2>{{ foodName }}</h2>
+        <input type="button" value="改變食物內容名稱" @click="changeFood">
+    </div>
+</body>
+<script>
+    var app = new Vue({
+        el: "#app ",
+        data: {
+            foodName: "番茄炒蛋"
+        },
+        methods: {
+            doIt: function() {
+                alert("do It");
+            },
+            changeFood: function() {
+                this.foodName += "好吃~";
+            }
+        }
+    });
+</script>
+
+</html>

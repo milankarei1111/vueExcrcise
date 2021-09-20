@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-html指令 解析html內容</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 
+            1. v-html 設置元素的interHTML
+            2. 內容有HTML結構會被解析為標籤
+            3. v-text 只會解析為文本
+            4. 需要解析html結構使用v-html, 需要解析文本使用v-text 
+        -->
+        <!-- 預設替代全部內容 -->
+        <p v-html="content"></p>
+        <p v-text="content"></p>
+    </div>
+</body>
+<script>
+    var app = new Vue({
+        el: "#app ",
+        data: {
+            content: "<a href='https://www.google.com/'>Google網站</a>",
+        }
+    });
+</script>
+
+</html>

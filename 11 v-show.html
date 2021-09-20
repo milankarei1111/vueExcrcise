@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-html指令 解析html內容</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 
+            1. v-html 設置元素的interHTML
+            2. 切換屬性為 display: none
+        -->
+        <input type="button" value="點擊切換顯示" @click="changeIsShow">
+        <p v-show="isShow">{{ content }}</p>
+
+        <input type="button" value="累加年齡" @click="addAge">
+        <p v-show="age>=18">年齡: {{ age }}</p>
+
+    </div>
+</body>
+<script>
+    var app = new Vue({
+        el: "#app ",
+        data: {
+            isShow: false,
+            content: "哈囉~",
+            age: 17
+        },
+        methods: {
+            changeIsShow: function() {
+                this.isShow = !this.isShow;
+            },
+            addAge: function() {
+                this.age++;
+            }
+        }
+    });
+</script>
+
+</html>
