@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-on 補充</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 
+            1. 更多修飾符 可參考 https://cn.vuejs.org/v2/api/#v-on
+        -->
+        <input type="button" value="點擊-範例" @click="doIt(123456789, '傳字符')">
+        <input type="text" placeholder="輸入後按下enter鍵, ex:72QQs1IxHV8" @keyup.enter="sayHi(videoId = $event.target.value)">
+        <br>
+        預覽影片連結
+        <iframe v-if="videoId" width="420" height="345" :src="videoUrl"></iframe>
+    </div>
+</body>
+<script>
+    var app = new Vue({
+        el: "#app ",
+        data:{
+            videoUrl:"",
+            videoId:""
+        },
+        methods: {
+            doIt: function(inputNumber, inputString) {
+               console.log(inputNumber);
+               console.log(inputString);
+            },
+            sayHi: function(){
+                this.videoUrl = "https://www.youtube.com/embed/" + this.videoId;
+                console.log(this.videoUrl);
+            }
+        }
+    });
+</script>
+
+</html>

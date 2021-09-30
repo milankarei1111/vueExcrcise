@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>匯率計算機</title></title>
+     <!--引入 unpkg 公共CDN-->
+     <script src="https://unpkg.com/vue@2.6.11/dist/vue.js"></script>
+</head>
+<body>
+    <!--在欄位輸入台幣後，輸出對應幣別，資料可抓台灣銀行-->
+    <div class="data">
+        <div>
+            <input type="text" placeholder="請輸入台幣金額:" v-model="money">
+        </div>
+        <br>
+        <div>
+            <select v-model="selCurrency" multiple>
+                <option v-for="(currency, index ) in currencyList" v-bind:value="currency.currency">{{ currency.name }}</option>
+            </select>
+            <span>Selected: {{ selCurrency }}</span>
+        </div>
+    </div>
+    <script src="js/demo2.js"></script>
+</body>
+</html>

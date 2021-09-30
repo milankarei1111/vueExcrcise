@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>代辦事項</title>
+     <!--引入 unpkg 公共CDN-->
+     <script src="https://unpkg.com/vue@2.6.11/dist/vue.js"></script>
+</head>
+<body>
+    <!--在欄位輸入台幣後，輸出對應幣別，資料可抓台灣銀行-->
+    <!--輸入代辦事項後 在事項列表顯示 -->
+    <div class="todoList">
+        <input type="text" placeholder="請輸入代辦事項" v-model="newTodo"
+         @keyup.enter = addTodo(newTodo)>
+        <h2>事項列表</h2>
+        <ul v-for="todo in todoList">
+            <li>{{ todo.content }} <button v-on:click="removeTodo(todo)">刪除</button></li>
+        </ul>
+
+        驗證: {{ this.todoList }}
+    </div>
+    <script src="js/demo1.js"></script>
+</body>
+</html>

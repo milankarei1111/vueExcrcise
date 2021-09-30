@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Demo</title>
+
+    <!--引入 unpkg 公共CDN-->
+    <script src="https://unpkg.com/vue@2.6.11/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        {{message}}
+        <div class="box">
+            {{message}}
+            分數 {{score * 100}}
+        </div>
+    </div>
+
+    <div id="app2">
+    {{message}}
+    <!--v-if  false時隱藏語法-->
+    <div v-if="loading">v-if 判斷是否顯示:訊息載入錯誤</div>
+    <!-- v-show  false時會保持語法 只是增加 style="display: none;" 屬性-->
+    <div v-show="loading">v-show 判斷是否顯示:訊息載入錯誤</div>
+    </div>
+    <div id="score">
+        <h2>你考幾分呢?</h2>
+        <input type="text" v-model="score">
+        <div v-if="score>60">很棒~及格</div>
+        <div v-else="score<=60">不及格</div>
+    </div>
+
+    <div id="app3">
+        <h2>匯率</h2>
+        <!-- v-model  雙向資料綁定, 綁定變數,動態接收輸入值,顯示至變數-->
+        <input type="text" v-model="message123">
+        <div class="h1">
+           美元: {{message123 * 30}}
+           <br>
+           人民幣: {{message123 * 5}}
+        </div>
+    </div>
+
+    <div class="app3">
+        {{message}}
+        <h2>顏色列表</h2>
+        <ul>
+            <!-- v-for  value in array -->
+            <li v-for="color in colors">{{color}}</li>
+        </ul>
+        <h2>家族中父親列表</h2>
+        <ul>
+            <!-- v-for  value in array -->
+            <li v-for="item in homes" v-on:click="myfather(item.father)">{{item.father}}</li>
+        </ul>
+    </div>
+    <!--this 就是function執行時 當下外層的物件 -->
+
+    <script src="js/vue_test1.js"></script>
+</body>
+</html>
